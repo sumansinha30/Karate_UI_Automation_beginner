@@ -1,6 +1,4 @@
-package Karate.fatures;
-
-import com.intuit.karate.junit5.Karate;
+package karate.features;
 
 class UsersRunner {
 

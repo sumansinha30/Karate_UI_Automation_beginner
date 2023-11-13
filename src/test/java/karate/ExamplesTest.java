@@ -1,4 +1,4 @@
-package Karate;
+package karate;
 
 import org.apache.commons.io.FileUtils;
 import com.intuit.karate.Results;
