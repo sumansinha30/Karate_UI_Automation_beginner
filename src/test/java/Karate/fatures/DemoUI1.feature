@@ -10,7 +10,6 @@ Feature: Validating UI browser
       if(karate.info.errorMessage) {
         karate.log("ERROR ENCOUNTERED");
         karate.write(driver.screenshot(false), 'demo1.png')
-        karate.call(DemoUI1.feature)
       }
     }
     """
@@ -30,12 +29,11 @@ Feature: Validating UI browser
 
   @Tag2
   Scenario: Open bing.com in browser identify using linkText
-    Given driver "https://www.saucedemo.com/"
+    Given driver "https://www.bing.com/"
     Then delay(8000)
     Then click("{a}Images")
 #    Then click("{^a}Image")
 #    Then click("^{a:3}Image")
-    And click("input[id=login-button]")
     Then delay(5000)
 
   @Tag3
@@ -48,6 +46,7 @@ Feature: Validating UI browser
     # By defaults these friendly locators search for input, so we can omit input
     Then leftOf("//label[@for='rememberUn']").click()
     Then rightOf("//p[@class='di mr16']").find("a").click()
+    And delay(7000)
     Then near("//div[@class='firstName textFieldInput section']").input("surendra")
     Then delay(17000)
 
@@ -70,7 +69,7 @@ Feature: Validating UI browser
     And forward()
     And print driver.title
     And print driver.url
-    Then match driver.url = "https://www.bing.com/images/feed?form=Z9LH"
+    Then match driver.url == "https://www.bing.com/images/feed?form=Z9LH"
 
   @Tag5
   Scenario: Open bing.com in browser to check browser dimensions and locator position
@@ -86,6 +85,7 @@ Feature: Validating UI browser
     Given driver "https://www.bing.com/"
     And delay(8000)
     And input("#sb_form_q", "pat cummins")
+    And delay(4000)
     Then screenshot()
     Then screenshot("#sb_form_q")
 
